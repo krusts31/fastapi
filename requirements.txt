@@ -1,0 +1,10 @@
+fastapi
+flake8
+uvicorn[standard]
+pydantic
+asyncpg
+pyjwt
+pyjwt[crypto]
+loguru
+requests
+stripe
