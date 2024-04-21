@@ -72,7 +72,7 @@ services:
     
   mqtt:
     restart: on-failure
-    hostname: frontend
+    hostname: mqtt
     build:
       context: ./mqtt
       dockerfile: Dockerfile
@@ -86,6 +86,31 @@ services:
       - full-stack-2-net
     volumes:
       - ./frontend/src:/frontend/src/:delegated
+
+  casdoor:
+    restart: on-failure
+    hostname: casdoor
+    build:
+      context: ./casdoor
+      dockerfile: Dockerfile
+      target: base
+    depends_on:
+      postgres:
+        condition: service_healthy
+      backend:
+        condition: service_started
+    networks:
+      - full-stack-2-net
+    ports:
+      - 8000:8000
+    environment:
+      POSTGRES_USER:        ${POSTGRES_USER}
+      POSTGRES_PASSWORD:    ${POSTGRES_PASSWORD}
+      POSTGRES_HOST:        ${POSTGRES_HOST}
+      POSTGRES_PORT:        ${POSTGRES_PORT}
+      driverName:           ${DRIVERNAME}
+      dbName:               ${CASDOOR_DB_NAME}
+      dataSourceName:       "user=${POSTGRES_USER} password=${POSTGRES_PASSWORD} host=${POSTGRES_HOST} port=${POSTGRES_PORT} sslmode=disable dbname=${CASDOOR_DB_NAME}"
 
 
 networks:

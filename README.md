@@ -12,3 +12,9 @@ Connecting to
 2. mqtt
 3. database
 4. authServer
+# FastApi Backend
+
+## To read Docs of api go to url/docs
+
+### User routes
+Used to authenticate manage users

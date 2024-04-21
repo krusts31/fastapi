@@ -2,7 +2,7 @@ FROM postgres:alpine as base
 
 FROM base as dev
 
-#COPY ./your_db_dump.sql /docker-entrypoint-initdb.d/
+COPY ./sql_dump/dump.sql /docker-entrypoint-initdb.d/
 
 FROM base as test
 
