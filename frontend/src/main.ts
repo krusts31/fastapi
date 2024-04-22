@@ -6,11 +6,11 @@ import { createPinia } from 'pinia'
 import Casdoor from 'casdoor-vue-sdk'
 
 const config = {
-  serverUrl: process.env.serverUrl,
-  clientId: process.env.clientId,
-  organizationName: process.env.organizationName,
-  appName: process.env.appName,
-  redirectPath: process.env.redirectPath,
+  serverUrl: import.meta.env.serverUrl,
+  clientId: import.meta.env.clientId,
+  organizationName: import.meta.env.organizationName,
+  appName: import.meta.env.appName,
+  redirectPath: import.meta.env.redirectPath,
 };
 
 
