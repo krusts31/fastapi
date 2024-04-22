@@ -2,7 +2,7 @@ FROM postgres:alpine as base
 
 FROM base as dev
 
-COPY ./sql_dump/dump.sql /docker-entrypoint-initdb.d/
+COPY --chown=postgres:postgres ./sql_dump/dump.sql /tmp
 
 FROM base as test
 

@@ -1,5 +1,6 @@
 conf-prod.yaml
 conf-test.yaml
+*.sql
 # Created by https://www.toptal.com/developers/gitignore/api/python,node,vue,vuejs,git,macos,linux,visualstudiocode,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,node,vue,vuejs,git,macos,linux,visualstudiocode,vim
 

@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+
+import { useCasdoor } from 'casdoor-vue-sdk';
+
+const { getSigninUrl, getSignupUrl } = useCasdoor();
+
+function login() {
+  window.location.href = getSigninUrl();
+}
+
+function signup() {
+  window.location.href = getSignupUrl();
+}
+
 </script>
 
 <template>
@@ -16,6 +30,11 @@ import HelloWorld from './components/HelloWorld.vue'
       </nav>
     </div>
   </header>
+
+  <div>
+    <button @click="login">Login with Casdoor</button>
+    <button @click="signOut">Logout</button>
+  </div>
 
   <RouterView />
 </template>
